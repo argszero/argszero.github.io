@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sshion 隐私政策</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem 4rem;
+         font: 16px/1.7 -apple-system, "PingFang SC", "Helvetica Neue", sans-serif; }
+  h1 { font-size: 1.6rem; margin-bottom: .25rem; }
+  h2 { font-size: 1.1rem; margin-top: 2rem; }
+  .lead { color: #666; margin-top: 0; }
+  ul { padding-left: 1.25rem; }
+  li { margin: .35rem 0; }
+  code { font-size: .875em; background: rgba(127,127,127,.15); padding: .1em .35em; border-radius: 4px; }
+  footer { margin-top: 3rem; color: #777; font-size: .875rem; }
+</style>
+</head>
+<body>
+<h1>sshion 隐私政策</h1>
+<p class="lead">生效日期：2026 年 10 月 15 日</p>
+
+<p><strong>sshion 不收集任何数据。</strong>这是一款把手机流量通过你自己的 SSH 服务器转发的工具，
+它没有账号、没有广告、没有分析统计，也没有把你的任何信息发送给开发者。</p>
+
+<h2>App 在手机上保存了什么</h2>
+<ul>
+  <li>你在 App 里填的<strong>服务器地址、端口、用户名</strong>和认证方式。</li>
+  <li>你的<strong>私钥或密码</strong>，存放在 iOS 的<strong>钥匙串（Keychain）</strong>里。</li>
+  <li>一份<strong>运行日志</strong>，记录隧道启动、连接和出错的信息，供你自己在 App 里查看。日志只保存在手机本地，有大小上限，可以随时在 App 里清空。</li>
+</ul>
+<p>以上内容都只存在你的设备上。卸载 App 即全部删除。</p>
+
+<h2>你的网络流量去了哪里</h2>
+<p>隧道打开时，经过它的流量被送到<strong>你自己配置的那台 SSH 服务器</strong>，
+再由那台服务器发往互联网。开发者不运营任何服务器，也无法看到这些流量、服务器地址或你的凭据。</p>
+<p>服务器域名需要通过 DNS 解析成地址，这一步由 iOS 系统的解析器完成，与系统上其他 App 一致。</p>
+
+<h2>不包含的内容</h2>
+<ul>
+  <li>没有账号系统，不需要注册，不索取邮箱或手机号。</li>
+  <li>没有第三方分析、统计或广告 SDK。</li>
+  <li>没有崩溃上报。</li>
+  <li>不收集设备标识符、位置或通讯录等任何个人信息。</li>
+  <li>不向任何第三方出售或共享数据 —— 因为没有数据可分享。</li>
+</ul>
+
+<h2>你的选择</h2>
+<ul>
+  <li>随时在 App 里点「Clear」清空日志，或点「Forget host key」忘掉已记住的服务器指纹。</li>
+  <li>卸载 App 会一并删除 App 保存的全部内容。</li>
+</ul>
+
+<h2>儿童</h2>
+<p>本 App 不面向儿童，也不会有意收集儿童的任何信息。</p>
+
+<h2>政策变更</h2>
+<p>本政策如有修改，会更新本页顶部的生效日期。</p>
+
+<h2>联系</h2>
+<p>关于隐私的问题，请提到
+<a href="https://github.com/argszero/argszero.github.io/issues">这个仓库的 Issues</a>。</p>
+
+<footer>sshion 隐私政策 · 最后更新：2026 年 10 月 15 日</footer>
+</body>
+</html>

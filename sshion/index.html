@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sshion — 使用与支持</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { max-width: 42rem; margin: 0 auto; padding: 2rem 1.25rem 4rem;
+         font: 16px/1.7 -apple-system, "PingFang SC", "Helvetica Neue", sans-serif; }
+  h1 { font-size: 1.6rem; margin-bottom: .25rem; }
+  h2 { font-size: 1.1rem; margin-top: 2rem; }
+  .lead { color: #666; margin-top: 0; }
+  ol, ul { padding-left: 1.25rem; }
+  li { margin: .35rem 0; }
+  code { font-size: .875em; background: rgba(127,127,127,.15); padding: .1em .35em; border-radius: 4px; }
+  .note { border-left: 3px solid #999; padding-left: .85rem; color: #555; }
+  footer { margin-top: 3rem; color: #777; font-size: .875rem; }
+</style>
+</head>
+<body>
+<h1>sshion</h1>
+<p class="lead">把手机接回你已经能登录的那台机器所在的网络。</p>
+
+<p>你手上本来就有一台能 <code>ssh</code> 登录的机器。打开这一版 App 里的连接以后，
+手机的上网流量就从那台机器所在的网络出去 —— 相当于你人回到了那个网络里。
+那台机器上什么都不用装，防火墙也不用改：用的就是你已经在用的 SSH 账号和密钥。</p>
+
+<h2>什么时候用得上</h2>
+<ul>
+  <li><strong>在外访问公司内网</strong>：出差或在路上，用手机看公司内部的页面和后台，不必背着电脑，也不必先连公司 VPN。</li>
+  <li><strong>在外访问家里的设备</strong>：家里那台一直开着的 NAS 或小主机，人在外面也能进去。</li>
+</ul>
+
+<h2>开始之前</h2>
+<ul>
+  <li>一台你能 <code>ssh</code> 登录的服务器（标准 sshd 即可）。</li>
+  <li>一把 <strong>Ed25519</strong> 私钥，或者密码。</li>
+</ul>
+
+<h2>怎么用</h2>
+<ol>
+  <li>在 App 里填服务器地址、端口和用户名。</li>
+  <li>导入一把私钥，或者填密码。也可以直接点「Generate a new key pair」生成一把新密钥，
+      把那行公钥加到服务器的 <code>~/.ssh/authorized_keys</code>。</li>
+  <li>点 Connect。第一次连接会记住服务器的指纹；之后指纹变了，App 会拒绝连接。</li>
+</ol>
+
+<h2>限制</h2>
+<ul>
+  <li>经过隧道的是<strong>走系统代理的 App</strong> —— Safari 和大部分原生网络请求。
+      用它自己裸连接、或者走 UDP / QUIC 的 App，在隧道开着的时候会连不上，断开就恢复。</li>
+  <li>不支持 UDP，所以语音通话、部分视频和游戏不行。</li>
+  <li>隧道开着时耗电会明显增加。</li>
+  <li>SSH 只能走 TCP，而 TCP 又套在 TCP 里，所以弱网下速度会明显下降。</li>
+</ul>
+
+<h2>排错</h2>
+<ul>
+  <li><strong>连上了但网页打不开</strong>：先看 App 里的日志（右上角那个放大镜图标）。</li>
+  <li><strong>「Test the tunnel」</strong>：它会从 App 自己的进程穿过隧道发一个请求，
+      并显示对端看到的出口 IP。这一步成功，说明隧道本身是通的；如果 Safari 仍然打不开，问题在系统代理这一侧。</li>
+  <li><strong>换过服务器或重装过系统</strong>：在 App 里点「Forget host key」再重连。指纹变化是正常的，
+      但默认按安全处理 —— 直接拒绝，而不是静默接受。</li>
+</ul>
+
+<h2>联系</h2>
+<p>问题、建议或 bug，请提到
+<a href="https://github.com/argszero/argszero.github.io/issues">这个仓库的 Issues</a>。</p>
+<p>隐私政策：<a href="./privacy.html">sshion 隐私政策</a></p>
+
+<footer>最后更新：2026 年 10 月 15 日</footer>
+</body>
+</html>
